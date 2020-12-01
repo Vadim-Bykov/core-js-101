@@ -19,7 +19,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-  return value1 + value2
+  return value1 + value2;
 }
 
 
@@ -35,7 +35,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-  return value.length
+  return value.length;
 }
 
 /**
@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -66,7 +66,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  return value.split(',')[1].slice(1, -1)
+  return value.split(',')[1].slice(1, -1);
 }
 
 
@@ -81,7 +81,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  return value[0]
+  return value[0];
 }
 
 /**
@@ -96,7 +96,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-  return value.trim()
+  return value.trim();
 }
 
 /**
@@ -112,10 +112,10 @@ function removeLeadingAndTrailingWhitespaces(value) {
  */
 function repeatString(value, count) {
   let str = '';
-  for (let i = 0; i < count; i++) {
-    str += value
+  for (let i = 0; i < count; i += 1) {
+    str += value;
   }
-  return str
+  return str;
 }
 
 /**
@@ -133,7 +133,7 @@ function repeatString(value, count) {
 function removeFirstOccurrences(str, value) {
   const index = str.indexOf(value);
   if (index === -1) return str;
-  return str.slice(0, index) + str.slice(index + value.length, -1)
+  return str.slice(0, index) + str.slice(index + value.length);
 }
 
 /**
@@ -148,7 +148,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.slice(1, -1)
+  return str.slice(1, -1);
 }
 
 
@@ -182,7 +182,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.split(';')
+  return str.split(';');
 }
 
 /**
@@ -209,13 +209,13 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  width = width - 2;
-  height = height - 2;
-  const topPart = '┌' + '─'.repeat(width) + '┐\n';
-  const middlePart = '|' + ' '.repeat(width) + '|\n';
-  const bottomPart = '└' + '─'.repeat(width) + '┘\n';
+  const w = width - 2;
+  const h = height - 2;
+  const topPart = `┌${'─'.repeat(w)}┐\n`;
+  const middlePart = (`│${' '.repeat(w)}│\n`).repeat(h);
+  const bottomPart = `└${'─'.repeat(w)}┘\n`;
 
-  return topPart + middlePart + bottomPart
+  return topPart + middlePart + bottomPart;
 }
 
 
@@ -236,12 +236,12 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-  output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
-  lookup = input.reduce((acc, letter, i) => Object.assign(acc, {
-     [letter]: output[i]
-  }), {})
-  return str.split('').map(sym => lookup[sym] || sym).join('');
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
+  const lookup = input.reduce((acc, letter, i) => Object.assign(acc, {
+    [letter]: output[i],
+  }), {});
+  return str.split('').map((sym) => lookup[sym] || sym).join('');
 }
 
 /**
@@ -259,7 +259,7 @@ function encodeToRot13(str) {
  */
 function isString(value) {
   if ((typeof value) === 'string' || value instanceof String) return true;
-  return false
+  return false;
 }
 
 
@@ -288,10 +288,10 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const arr = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠']
+  const arr = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
 
-  return arr.findIndex(i => i === value)
-};
+  return arr.findIndex((i) => i === value);
+}
 
 
 module.exports = {
